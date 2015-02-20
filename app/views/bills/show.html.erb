@@ -10,16 +10,18 @@
   <%= @bill.content %>
 </p>
 
-<%= form_for(@response) do |f| if session[:voter_id] %>
-  <%= f.hidden_field :bill_id, :value => @bill.id %>
-  <%= f.label :vote, "Yes", :value => "true"  %>
-  <%= f.radio_button :vote, true %>
-  <%= f.label :vote, "No", :value => "false" %>
-  <%= f.radio_button :vote, false %>
+<% if session[:voter_id]  %>
+  <%= form_for(@response) do |f| %>
+    <%= f.hidden_field :bill_id, :value => @bill.id %>
+    <%= f.label :vote, "Yes", :value => "true"  %>
+    <%= f.radio_button :vote, true %>
+    <%= f.label :vote, "No", :value => "false" %>
+    <%= f.radio_button :vote, false %>
 
-  <div class="actions">
-    <%= f.submit "Submit Vote" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Submit Vote" %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
