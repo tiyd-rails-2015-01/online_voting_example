@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :bills
 
   get 'log_in' => 'sessions#new'
-  post 'log_in' => 'sessions#new'
+  post 'log_in' => 'sessions#create'
+
+  root 'bills#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

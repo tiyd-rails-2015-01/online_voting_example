@@ -9,7 +9,7 @@
 
   <h1>Log in</h1>
 
-<%= form_tag log_in_path do %>
+<%= form_tag :action => :create do %>
   <div class="login-email">
     <%= label_tag :email %><br />
     <%= text_field_tag :email, params[:email] %>
