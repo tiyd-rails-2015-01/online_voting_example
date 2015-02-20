@@ -23,4 +23,11 @@ class ActiveSupport::TestCase
   def log_in_as_voter(voter)
     session[:voter_id] = voter.id
   end
+
+  def log_out
+    get bills_path
+    assert_select("form.button_to")
+    delete log_out_path
+    assert_redirected_to log_in_path
+  end
 end

@@ -26,13 +26,10 @@ class BillsControllerTest < ActionController::TestCase
     assert_select("a[data-confirm]", 0)
   end
 
-  test "voters and staff can log out" do
+  test "voters and staff can see log out button" do
     log_in_as_staff(@staff)
     get :index
     assert_select("form.button_to")
-    get log_out_path
-    follow_redirect!
-    assert_redirected_to log_in_path
   end
 
   # test "should get index" do
