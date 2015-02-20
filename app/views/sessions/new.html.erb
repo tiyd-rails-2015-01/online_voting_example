@@ -1,0 +1,23 @@
+<div class="login-body">
+
+
+<header class="main-header">
+  Online Voting
+</header>
+
+
+
+  <h1>Log in</h1>
+
+<%= form_tag log_in_path do %>
+  <div class="login-email">
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="login-pword">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="button"><%= submit_tag "Log in" %></div>
+<% end %>
+</div>
