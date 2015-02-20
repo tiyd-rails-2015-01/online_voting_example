@@ -12,9 +12,6 @@ class BillsController < ApplicationController
   # GET /bills/1.json
   def show
     @response = Response.new
-    if @bill.responses.count < 1
-      @bill.responses.build if session[:voter_id]
-    end
   end
 
   # GET /bills/new
@@ -74,7 +71,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :content, responses_attributes: [:id,
-          :vote, :bill_id, :_destroy])
+      params.require(:bill).permit(:name, :content)
     end
 end
