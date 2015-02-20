@@ -5,6 +5,11 @@ class BillsControllerTest < ActionController::TestCase
     @bill = bills(:one)
   end
 
+  test "can't load bills index if not logged in" do
+    get :index
+    assert_redirected_to log_in_path, flash[:notice]
+  end
+  
   # test "should get index" do
   #   get :index
   #   assert_response :success
