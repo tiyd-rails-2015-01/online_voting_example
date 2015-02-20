@@ -32,6 +32,12 @@ class BillsControllerTest < ActionController::TestCase
     assert_select("form.button_to")
   end
 
+  test "show page has radio options" do
+    log_in_as_voter(@voter)
+    bill = bills(:one)
+    get :show, id: bill
+    assert_select("input[type=radio]")
+  end
   # test "should get index" do
   #   get :index
   #   assert_response :success
