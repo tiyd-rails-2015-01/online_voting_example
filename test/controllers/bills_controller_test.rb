@@ -26,6 +26,10 @@ class BillsControllerTest < ActionController::TestCase
     assert_select("a[data-confirm]", 0)
   end
 
+  test "voters and staff can log out" do
+    assert_select("a[href=?]", log_out_path)
+  end
+
   # test "should get index" do
   #   get :index
   #   assert_response :success
