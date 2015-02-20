@@ -7,12 +7,12 @@
 ## Phase 2
 
 * Staff can create constituent (voter) accounts
-* Constituents can log in and view upcoming bills
-* Constituents can *not* edit or delete bills
+* Voters can log in and view upcoming bills
+* Voters can *not* edit or delete bills
 
 ## Phase 3
 
-* Constituents can vote yes or no on an upcoming bill
+* Voters can vote yes or no on an upcoming bill
 * Staff can see voting results of each bill
 * Visitors can view upcoming bills but can not modify them or vote
 

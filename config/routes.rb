@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'voters/index'
+
+  get 'voters/new'
+
+  get 'voters/edit'
+
+  get 'voters/show'
+
+  get 'voters/create'
+
+  get 'voters/update'
+
+  get 'voters/destroy'
+
   resources :bills
 
   get 'log_in' => 'sessions#new'
