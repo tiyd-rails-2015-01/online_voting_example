@@ -9,5 +9,6 @@ class VotersCanLogInTest < ActionDispatch::IntegrationTest
     Voter.create(name: "Joe", email: "joe.boring@example.com", password: "password")
     post log_in_path, email: "joe.boring@example.com", password: "password"
     assert is_logged_in_as_voter?
+    assert_redirected_to bills_path
   end
 end

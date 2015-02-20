@@ -3,13 +3,29 @@ require 'test_helper'
 class BillsControllerTest < ActionController::TestCase
   setup do
     @bill = bills(:one)
+    @staff = staffs(:one)
+    @voter = voters(:one)
   end
 
   test "can't load bills index if not logged in" do
     get :index
     assert_redirected_to log_in_path, flash[:notice]
   end
-  
+
+  test "staff can edit or delete bills" do
+    log_in_as(@staff)
+    get :index
+    assert_select("a[href=?]", edit_bill_path(Bill.first))
+    assert_select("a[data-confirm]")
+  end
+
+  test "voter can not edit or delete bills" do
+    log_in_as(@voter)
+    get :index
+    assert_select("a[href=?]", edit_bill_path(Bill.first), 0)
+    assert_select("a[data-confirm]", 0)
+  end
+
   # test "should get index" do
   #   get :index
   #   assert_response :success
