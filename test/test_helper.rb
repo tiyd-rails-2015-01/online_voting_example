@@ -12,4 +12,8 @@ class ActiveSupport::TestCase
   def is_logged_in?
     !session[:staff_id].nil?
   end
+
+  def log_in_as(staff)
+    session[:staff_id] = staff.id
+  end
 end

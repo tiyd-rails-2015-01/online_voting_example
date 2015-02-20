@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
+  name: George W. Bush
+  email: gdubya@usa.com
   password_digest: MyString
 
 two:
