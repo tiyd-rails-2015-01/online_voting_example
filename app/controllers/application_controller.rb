@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user = Staff.find_by_id(session[:staff_id])
+    @current_user = Staff.find_by_id(session[:staff_id]) ||
+                  Voter.find_by_id(session[:voter_id])
   end
+
+
 
   def logged_in?
     if current_user.nil?

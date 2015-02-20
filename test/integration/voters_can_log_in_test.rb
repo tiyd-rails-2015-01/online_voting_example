@@ -4,10 +4,10 @@ class VotersCanLogInTest < ActionDispatch::IntegrationTest
   test "voter can log in with correct log in information" do
     get log_in_path
     post log_in_path, email: "thisisnotcorrect@email.com", password: "wrong"
-    refute is_logged_in?
+    refute is_logged_in_as_voter?
     assert_template "sessions/new"
     Voter.create(name: "Joe", email: "joe.boring@example.com", password: "password")
     post log_in_path, email: "joe.boring@example.com", password: "password"
-    assert is_logged_in?
+    assert is_logged_in_as_voter?
   end
 end

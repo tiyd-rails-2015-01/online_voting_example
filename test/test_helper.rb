@@ -9,8 +9,12 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  def is_logged_in?
+  def is_logged_in_as_staff?
     !session[:staff_id].nil?
+  end
+
+  def is_logged_in_as_voter?
+    !session[:voter_id].nil?
   end
 
   def log_in_as(staff)
