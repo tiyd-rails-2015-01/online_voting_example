@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session[:staff_id] = nil
+    session[:voter_id] = nil
     redirect_to log_in_path
   end
 

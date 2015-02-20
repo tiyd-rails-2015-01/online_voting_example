@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'log_in' => 'sessions#new'
   post 'log_in' => 'sessions#create'
+  delete 'log_out' => 'sessions#destroy'
 
   root 'bills#index'
   # The priority is based upon order of creation: first created -> highest priority.

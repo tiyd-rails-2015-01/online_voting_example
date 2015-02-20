@@ -27,7 +27,12 @@ class BillsControllerTest < ActionController::TestCase
   end
 
   test "voters and staff can log out" do
-    assert_select("a[href=?]", log_out_path)
+    log_in_as_staff(@staff)
+    get :index
+    assert_select("form.button_to")
+    get log_out_path
+    follow_redirect!
+    assert_redirected_to log_in_path
   end
 
   # test "should get index" do
