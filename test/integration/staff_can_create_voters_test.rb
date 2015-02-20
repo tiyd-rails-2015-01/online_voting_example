@@ -8,6 +8,7 @@ class StaffCanCreateVotersTest < ActionDispatch::IntegrationTest
     assert is_logged_in_as_staff?
     follow_redirect!
     get new_voter_path
+    assert_select("form")
     assert_difference('Voter.count', 1) do
       Voter.create(name: "Average Joe", email: "aj@freedom.com", password: "password")
     end
