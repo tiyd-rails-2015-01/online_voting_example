@@ -15,7 +15,7 @@ class VotersControllerTest < ActionController::TestCase
   end
 
   test "voter must have name, email and password" do
-    log_in_as(@staff)
+    log_in_as_staff(@staff)
     assert_no_difference('Voter.count', 1) do
       Voter.create(password: "password")
     end

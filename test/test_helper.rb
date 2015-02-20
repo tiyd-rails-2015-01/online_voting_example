@@ -17,7 +17,10 @@ class ActiveSupport::TestCase
     !session[:voter_id].nil?
   end
 
-  def log_in_as(staff)
+  def log_in_as_staff(staff)
     session[:staff_id] = staff.id
+  end
+  def log_in_as_voter(voter)
+    session[:voter_id] = voter.id
   end
 end

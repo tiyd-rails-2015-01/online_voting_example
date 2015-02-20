@@ -13,14 +13,14 @@ class BillsControllerTest < ActionController::TestCase
   end
 
   test "staff can edit or delete bills" do
-    log_in_as(@staff)
+    log_in_as_staff(@staff)
     get :index
     assert_select("a[href=?]", edit_bill_path(Bill.first))
     assert_select("a[data-confirm]")
   end
 
   test "voter can not edit or delete bills" do
-    log_in_as(@voter)
+    log_in_as_voter(@voter)
     get :index
     assert_select("a[href=?]", edit_bill_path(Bill.first), 0)
     assert_select("a[data-confirm]", 0)

@@ -17,8 +17,8 @@
         <td><%= bill.name %></td>
         <td><%= bill.content %></td>
         <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_bill_path(bill) if session[:staff_id]%></td>
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } if session[:staff_id]%></td>
       </tr>
     <% end %>
   </tbody>
