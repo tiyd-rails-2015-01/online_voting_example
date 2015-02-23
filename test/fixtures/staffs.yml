@@ -3,9 +3,11 @@
 one:
   name: George W. Bush
   email: gdubya@usa.com
-  password_digest: MyString
+  password_digest: <%= BCrypt::Password.create("nucular", cost: 4) %>
 
 two:
-  name: MyString
-  email: MyString
-  password_digest: MyString
+  name: Bill
+  email: bill.boring@example.com
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+
+# Staff.create(name: "Bill", email: "bill.boring@example.com", password: "password")

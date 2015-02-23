@@ -15,8 +15,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     if current_user.nil?
-      redirect_to log_in_path,
-      notice: "Please log in to create a survey"
+      unless params[:action] == "index" && params[:controller] == "bills"
+        flash[:notice] = "Please log in to create a survey"
+      end
+      redirect_to log_in_path
     end
   end
 end

@@ -18,7 +18,7 @@ class VotersController < ApplicationController
   def create
     @voter = Voter.new(voter_params)
     if @voter.save
-      redirect_to bills_path, notice: "Voter Saved!"
+      redirect_to @voter, notice: "Voter Saved!"
     else
       redirect_to new_voter_path, notice: "All fields are required."
     end
